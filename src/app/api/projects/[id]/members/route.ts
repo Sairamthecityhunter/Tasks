@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { getSessionFromRequest } from "@/lib/auth";
+import { getSessionFromRequest } from "@/lib/auth-core";
 import { prisma } from "@/lib/prisma";
 import { assertProjectAccess } from "@/lib/projectAccess";
+
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 const postSchema = z.object({ email: z.string().email() });
 

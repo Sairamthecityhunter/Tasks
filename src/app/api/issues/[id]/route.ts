@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { getSessionFromRequest } from "@/lib/auth";
+import type { Prisma } from "@prisma/client";
+import { getSessionFromRequest } from "@/lib/auth-core";
 import { prisma } from "@/lib/prisma";
 import { assertProjectAccess } from "@/lib/projectAccess";
 import { isPriority, isStatus } from "@/lib/issues";
-import type { Prisma } from "@prisma/client";
+
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 const patchSchema = z.object({
   title: z.string().min(1).max(500).optional(),

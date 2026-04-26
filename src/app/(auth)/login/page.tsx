@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { getSessionFromCookies } from "@/lib/auth";
 import { LoginForm } from "./ui";
 
+export const dynamic = "force-dynamic";
+
 export default async function LoginPage() {
   const s = await getSessionFromCookies();
   if (s) redirect("/projects");

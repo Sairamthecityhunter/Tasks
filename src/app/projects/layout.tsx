@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 import { getSessionFromCookies } from "@/lib/auth";
 import { AppNav } from "@/components/AppNav";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProjectsLayout({ children }: { children: React.ReactNode }) {
   const s = await getSessionFromCookies();
   if (!s) redirect("/login");

@@ -3,6 +3,8 @@ import { getSessionFromCookies } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { NewProject } from "./ui";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProjectsPage() {
   const s = await getSessionFromCookies();
   if (!s) return null;

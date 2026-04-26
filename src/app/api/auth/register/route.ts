@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
-import { hashPassword, signSession, sessionCookieOptions } from "@/lib/auth";
+import { hashPassword, signSession, sessionCookieOptions } from "@/lib/auth-core";
+
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 const bodySchema = z.object({
   email: z.string().email(),

@@ -6,6 +6,8 @@ import { prisma } from "@/lib/prisma";
 import { ProjectBoard } from "@/components/ProjectBoard";
 import { InviteForm } from "./invite";
 
+export const dynamic = "force-dynamic";
+
 type Props = { params: Promise<{ id: string }> };
 
 export default async function ProjectPage({ params }: Props) {
